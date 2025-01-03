@@ -1,95 +1,41 @@
 // Initialize EmailJS
-(function () {
-  emailjs.init("0J10yI7ak3uNPQHUK");
-})();
+emailjs.init("0J10yI7ak3uNPQHUK");
 
-// Form validation and submission
-document
-  .querySelector(".contact-form")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    // Get form elements
-    const nameInput = this.querySelector('input[type="text"]');
-    const emailInput = this.querySelector('input[type="email"]');
-    const messageInput = this.querySelector("textarea");
-    const submitButton = this.querySelector(".submit-btn");
+  // Disable submit button while sending
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending...";
 
-    // Reset previous error states
-    [nameInput, emailInput, messageInput].forEach((input) => {
-      input.style.borderColor = "";
-    });
+  // Get form data
+  const templateParams = {
+    from_name: document.getElementById("name").value,
+    from_email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+    to_email: "jayliang518@gmail.com",
+  };
 
-    // Validation
-    let isValid = true;
-    const errors = [];
-
-    if (!nameInput.value.trim()) {
-      isValid = false;
-      nameInput.style.borderColor = "red";
-      errors.push("Name is required");
-    }
-
-    if (!emailInput.value.trim()) {
-      isValid = false;
-      emailInput.style.borderColor = "red";
-      errors.push("Email is required");
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-      isValid = false;
-      emailInput.style.borderColor = "red";
-      errors.push("Please enter a valid email address");
-    }
-
-    if (!messageInput.value.trim()) {
-      isValid = false;
-      messageInput.style.borderColor = "red";
-      errors.push("Message is required");
-    }
-
-    if (!isValid) {
-      alert(errors.join("\n"));
-      return;
-    }
-
-    // Prepare email parameters
-    const templateParams = {
-      from_name: nameInput.value,
-      from_email: emailInput.value,
-      message: messageInput.value,
-      to_email: "jayliang518@gmail.com",
-    };
-
-    // Update button state
-    submitButton.disabled = true;
-    submitButton.textContent = "Sending...";
-
-    // Send email using EmailJS
-    emailjs.send("service_om7di5k", "template_sprtwng", templateParams).then(
+  // Send email using EmailJS
+  emailjs
+    .send("service_t30e8pv", "template_sprtwng", templateParams)
+    .then(
       function (response) {
         console.log("SUCCESS!", response.status, response.text);
-        submitButton.textContent = "Message Sent!";
+        alert("Message sent successfully!");
 
         // Reset form
-        nameInput.value = "";
-        emailInput.value = "";
-        messageInput.value = "";
-
-        // Reset button after 3 seconds
-        setTimeout(() => {
-          submitButton.disabled = false;
-          submitButton.textContent = "Send Message";
-        }, 3000);
+        document.getElementById("contactForm").reset();
       },
       function (error) {
         console.log("FAILED...", error);
-        submitButton.textContent = "Error Sending";
-        alert("Failed to send message. Please try again later.");
-
-        // Reset button after 3 seconds
-        setTimeout(() => {
-          submitButton.disabled = false;
-          submitButton.textContent = "Send Message";
-        }, 3000);
+        alert("Failed to send message. Please try again.");
       }
-    );
-  });
+    )
+    .finally(function () {
+      // Re-enable submit button
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message";
+    });
+});
