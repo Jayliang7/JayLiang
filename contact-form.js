@@ -15,3 +15,17 @@ contactForm.addEventListener("submit", function (event) {
   // Optional: Reset form fields
   contactForm.reset();
 });
+const form = document.querySelector(".contact-form");
+const submitBtn = document.querySelector(".submit-btn");
+
+// Add click event listener to the button to prevent form submission
+submitBtn.addEventListener("click", function (e) {
+  // Prevent the default form submission
+  e.preventDefault();
+});
+
+// Add submit event listener to the form
+form.addEventListener("submit", function (e) {
+  // Prevent the default form submission
+  e.preventDefault();
+});
