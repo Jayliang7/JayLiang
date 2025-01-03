@@ -1,0 +1,62 @@
+/* Contact Section */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-secondary);
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form-input {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--accent-secondary);
+  border-radius: 4px;
+  padding: 1rem;
+  color: var(--text-primary);
+  width: 100%;
+  resize: none;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+.submit-btn {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--accent-secondary);
+}
+
+.contact-item a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-item a:hover {
+  color: var(--accent-primary);
+}

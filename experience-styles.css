@@ -1,0 +1,49 @@
+/* Experience Section */
+#experience {
+  background-color: var(--bg-secondary);
+}
+
+.experience-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: var(--accent-secondary);
+}
+.timeline-item:nth-child(1):before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 1rem;
+  width: 1px;
+  height: 100%;
+  background-color: var(--accent-secondary);
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: -2.3rem;
+  top: 0.5rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+}
+
+.timeline-date {
+  color: var(--accent-primary);
+  margin-bottom: 0.5rem;
+}
