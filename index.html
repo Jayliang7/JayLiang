@@ -11,14 +11,9 @@
     />
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "0J10yI7ak3uNPQHUK",
-      });
-   })();
-</script>
+    </script>
+    <script src="nav.js"></script>
+    <script src="contact-form.js"></script>
     <link rel="icon" type="image/x-icon" href="lianglogo.ico">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,8 +27,7 @@
     <link rel="stylesheet" href="project-styles.css" />
   </head>
   <body>
-    <script src="nav.js"></script>
-   <script src="contact-form.js"></script>
+    
    
    
     <nav class="navbar">
@@ -377,7 +371,7 @@
           </div>
 
           
-          <form class="contact-form">
+          <form class="contact-form" onsubmit="sendMail(event)">
             <input type="text" id="name" class="form-input" placeholder="Your Name" />
             <input type="email" id="email" class="form-input" placeholder="Your Email" />
             <textarea
