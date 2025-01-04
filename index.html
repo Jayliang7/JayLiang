@@ -371,7 +371,7 @@
           </div>
 
           
-          <form class="contact-form" onsubmit="sendMail(event)">
+          <form id="contact-form" class="contact-form" onsubmit="sendMail(event)">
             <input type="text" id="name" class="form-input" placeholder="Your Name" />
             <input type="email" id="email" class="form-input" placeholder="Your Email" />
             <textarea
@@ -380,7 +380,8 @@
               rows="5"
               placeholder="Your Message"
             ></textarea>
-            <button type="submit" class="submit-btn" onclick="sendMail()">Send Message</button>
+            <div id="error-message" style="display: none; color: rgb(161, 0, 0); margin: 10px 0;"></div>
+            <button type="submit" class="submit-btn">Send Message</button>
           </form>
         </div>
       </div>
