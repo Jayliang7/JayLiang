@@ -367,14 +367,15 @@
 
           
           <form class="contact-form">
-            <input type="text" class="form-input" placeholder="Your Name" />
-            <input type="email" class="form-input" placeholder="Your Email" />
+            <input type="text" id="name" class="form-input" placeholder="Your Name" />
+            <input type="email" id="email" class="form-input" placeholder="Your Email" />
             <textarea
               class="form-input"
+              id="message"
               rows="5"
               placeholder="Your Message"
             ></textarea>
-            <button type="submit" class="submit-btn">Send Message</button>
+            <button type="submit" class="submit-btn" onclick="sendMail()">Send Message</button>
           </form>
         </div>
       </div>

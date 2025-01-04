@@ -1,31 +1,11 @@
-const contactForm = document.querySelector(".contact-form");
-const submitButton = contactForm.querySelector(".submit-btn");
+function sendMail() {
+  let params = {
+    name: document.getElementsById("name").value,
+    email: document.getElementsById("email").value,
+    message: document.getElementsById("message").value,
+  };
 
-// Add submit event listener to the form
-contactForm.addEventListener("submit", function (event) {
-  // Prevent the default form submission
-  event.preventDefault();
-
-  // Change button text
-  submitButton.textContent = "Successfully Sent!";
-
-  // Change button background color
-  submitButton.style.backgroundColor = "var(--accent-secondary)";
-
-  // Optional: Reset form fields
-  contactForm.reset();
-});
-const form = document.querySelector(".contact-form");
-const submitBtn = document.querySelector(".submit-btn");
-
-// Add click event listener to the button to prevent form submission
-submitBtn.addEventListener("click", function (e) {
-  // Prevent the default form submission
-  e.preventDefault();
-});
-
-// Add submit event listener to the form
-form.addEventListener("submit", function (e) {
-  // Prevent the default form submission
-  e.preventDefault();
-});
+  emailjs
+    .send("service_t30e8pv", "template_sprtwng", parms)
+    .then(alert("Email sent!"));
+}
