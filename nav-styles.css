@@ -60,6 +60,15 @@
 
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
+  html.menu-open {
+    overflow: hidden;
+  }
+
+  body {
+    position: relative;
+    width: 100%;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -76,6 +85,7 @@
     align-items: center;
     transition: right 0.3s ease-in-out;
     z-index: 1000;
+    padding-right: 0; /* Prevent padding shift */
   }
 
   .nav-links.active {
@@ -110,4 +120,17 @@
   .nav-backdrop.active {
     display: block;
   }
+}
+
+/* Add this to prevent content shift */
+:root {
+  --scrollbar-width: calc(100vw - 100%);
+}
+
+body {
+  padding-right: var(--scrollbar-width);
+}
+
+body.menu-open {
+  padding-right: var(--scrollbar-width);
 }

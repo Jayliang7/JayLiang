@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
+  const html = document.documentElement;
   const body = document.body;
 
   // Create backdrop element
@@ -13,7 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.classList.toggle("active");
     navLinks.classList.toggle("active");
     backdrop.classList.toggle("active");
-    body.style.overflow = body.style.overflow === "hidden" ? "" : "hidden";
+    html.classList.toggle("menu-open");
+    body.classList.toggle("menu-open");
   });
 
   // Close menu when clicking on backdrop
@@ -21,7 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.classList.remove("active");
     navLinks.classList.remove("active");
     backdrop.classList.remove("active");
-    body.style.overflow = "";
+    html.classList.remove("menu-open");
+    body.classList.remove("menu-open");
   });
 
   // Close menu when clicking on links
@@ -31,7 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
       hamburger.classList.remove("active");
       navLinks.classList.remove("active");
       backdrop.classList.remove("active");
-      body.style.overflow = "";
+      html.classList.remove("menu-open");
+      body.classList.remove("menu-open");
     });
   });
 });
